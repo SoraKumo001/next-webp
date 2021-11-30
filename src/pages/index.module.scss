@@ -1,0 +1,25 @@
+.root {
+  display: inline-block;
+  position: relative;
+  border: solid 1px #dddddd;
+  min-height: 64px;
+  min-width: 64px;
+  overflow: hidden;
+  cursor: pointer;
+  &:hover,
+  &.dragover {
+    border: solid 1px #aaaadd;
+  }
+  .clear {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    cursor: pointer;
+  }
+  img {
+    max-width: 90%;
+  }
+  input {
+    display: none;
+  }
+}
