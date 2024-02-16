@@ -143,6 +143,7 @@ const Page = () => {
       <div>
         <a href="https://github.com/SoraKumo001/next-webp">Source code</a>
       </div>
+      Timer indicating that front-end processing has not stopped.
       <Time />
       <hr />
       <div>webp</div>
