@@ -22,4 +22,10 @@
   input {
     display: none;
   }
+  .size {
+    background: rgba($color: white, $alpha: 0.5);
+    padding: 4px;
+    border-radius: 4px;
+    position: absolute;
+  }
 }

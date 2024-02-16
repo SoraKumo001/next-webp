@@ -20,6 +20,7 @@ const Time = () => {
 
 const Converter = ({ type }: { type: "webp" | "avif" }) => {
   const ref = useRef<HTMLInputElement>(null);
+  const [size, setSize] = useState(0);
   const [isDrag, setDrag] = useState(false);
   const [imageData, setImageData] = useState<string | undefined>();
   const [state, setState] = useState<"idle" | "progress" | "finished">("idle");
@@ -51,6 +52,7 @@ const Converter = ({ type }: { type: "webp" | "avif" }) => {
             data: ctx.getImageData(0, 0, img.width, img.height),
           });
     setState("finished");
+    setSize(value.byteLength);
     return value;
   };
 
@@ -88,12 +90,18 @@ const Converter = ({ type }: { type: "webp" | "avif" }) => {
         e.preventDefault();
       }}
     >
+      {size > 0 && (
+        <div className={styled.size}>
+          {Math.floor(size / 1024).toLocaleString()}KB
+        </div>
+      )}
       {imageData ? (
         <>
           <span
             className={styled.clear}
             onClick={() => {
               setImageData(undefined);
+              setSize(0);
               setState("idle");
             }}
           >
